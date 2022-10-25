@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <form action="controller/autentica.php" method="POST">
+  <form action="controller/usuario.php" method="POST">
     <section class="vh-100" style="background-color: #508bfc;">
       <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -20,13 +20,13 @@
                 <h3 class="mb-5">Entrar</h3>
 
                 <div class="form-outline mb-4">
-                  <input type="email" id="typeEmailX-2" class="form-control form-control-lg" />
-                  <b><label class="form-label" for="typeEmailX-2">Email</label></b>
+                  <input type="email" id="emailUsuario" name="emailUsuario" class="form-control form-control-lg" required />
+                  <b><label class="form-label" for="emailUsuario">Email</label></b>
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="password" id="typePasswordX-2" class="form-control form-control-lg" />
-                  <b><label class="form-label" for="typePasswordX-2">Password</label></b>
+                  <input type="password" id="senhaUsuario" name="senhaUsuario" class="form-control form-control-lg" required />
+                  <b><label class="form-label" for="senhaUsuario">Password</label></b>
                 </div>
 
                 <div class="form-check d-flex justify-content-start mb-4">
@@ -35,6 +35,7 @@
                 </div>
 
                 <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                <button class="btn btn-success btn-lg btn-block" type="submit">Cadastrar</button>
                 <hr class="my-4">
 
               </div>
