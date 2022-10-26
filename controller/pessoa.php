@@ -63,10 +63,41 @@ class Pessoa {
 
     }
 
+    public static function listarPessoa(): array {
+        
+        $pdo = Db::conecta();
+
+        $stmt = $pdo->prepare("SELECT 
+                                    p.nome, 
+                                    p.cpf, 
+                                    p.rg, 
+                                    e.cep, 
+                                    tel.telefone
+                                FROM 
+                                    pessoas p,
+                                    enderecos e,
+                                    estados es,
+                                    telefones tel
+                                WHERE 
+                                    p.endereco_id = e.id
+                                AND
+                                    e.estado_id = es.id
+                                AND
+                                    tel.pessoa_id = p.id");
+
+        $stmt->execute();
+
+        $dadosPessoa = $stmt->fetchAll();
+
+        return $dadosPessoa;
+    }
+
 }
 
-Pessoa::cadastrarPessoa();
-header('Location: ../view/painel.php');
+if(isset($_POST['cadastrarPessoa'])) {
+    Pessoa::cadastrarPessoa();
+    header('Location: ../view/painel.php');
+}
 
 ?>
 
