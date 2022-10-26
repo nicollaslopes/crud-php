@@ -14,6 +14,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -92,7 +97,6 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-      <form action="../controller/excluirPessoa.php" method="POST>
           <h5 class="modal-title" id="modalExclusaoLabel">Exclusão</h5>
           </button>
         </div>
@@ -102,24 +106,42 @@
       
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="submit" class="btn btn-danger">Exclu</button>
-      </form>
+          <button type="submit" id="botaoExclusao" data-dismiss="modal" class="btn btn-danger">Excluir</button>
       </div>
     </div>
   </div>
 </div> 
-
 
 </body>
 </html>
 
 <script>
 
-$('#myModal').on('shown.bs.modal', function (event) {
+$('#modalExclusao').on('shown.bs.modal', function (event) {
   $('#myInput').trigger('focus')
 
   const button = $(event.relatedTarget)
-  const idPessoa = button.data("id");
+  let idPessoa = button.data("id");
+  const dadosPessoa = {idPessoa: idPessoa};
+
+  $("#botaoExclusao").on('click', function() {
+
+  const url = '../controller/excluirPessoa.php';
+
+  $.ajax({
+      type: 'POST',
+      url: url,
+      data: dadosPessoa,
+      dataType: 'html',
+      success: function (data) {
+        window.location.reload();
+      }
+    });
+
+
+  });
+
+
 
 })
     

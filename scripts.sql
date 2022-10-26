@@ -190,14 +190,3 @@ COMMIT;
 
 ----
 
--- ALTER TABLE pessoas
--- ADD CONSTRAINT endereco_id
--- FOREIGN KEY (endereco_id) REFERENCES enderecos(id);
-
--- ALTER TABLE enderecos 
--- ADD CONSTRAINT estado_id 
--- FOREIGN KEY (estado_id) REFERENCES estados(id);
-
--- ALTER TABLE telefones 
--- ADD CONSTRAINT pessoa_id 
--- FOREIGN KEY (pessoa_id) REFERENCES pessoas(id);
