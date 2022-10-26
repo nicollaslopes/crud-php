@@ -73,9 +73,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalEdicaoLabel">Editar</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <h5 class="modal-title" id="modalEdicaoLabel">Edição</h5>
         </button>
       </div>
       <div class="modal-body">
@@ -95,9 +93,7 @@
     <div class="modal-content">
       <div class="modal-header">
       <form action="../controller/excluirPessoa.php" method="POST>
-          <h5 class="modal-title" id="modalExclusaoLabel">Excluir</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+          <h5 class="modal-title" id="modalExclusaoLabel">Exclusão</h5>
           </button>
         </div>
         <div class="modal-body">
@@ -106,7 +102,7 @@
       
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="submit" class="btn btn-danger">Excluir</button>
+          <button type="submit" class="btn btn-danger">Exclu</button>
       </form>
       </div>
     </div>
