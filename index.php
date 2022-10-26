@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <form action="controller/usuario.php" method="POST">
+  <form action="controller/autenticacao.php" method="POST">
     <section class="vh-100" style="background-color: #508bfc;">
       <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
