@@ -67,7 +67,8 @@ class Pessoa {
         
         $pdo = Db::conecta();
 
-        $stmt = $pdo->prepare("SELECT 
+        $stmt = $pdo->prepare("SELECT
+                                    p.id,
                                     p.nome, 
                                     p.cpf, 
                                     p.rg, 

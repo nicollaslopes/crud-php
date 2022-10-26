@@ -38,16 +38,28 @@
       <div class="col">RG</div>
       <div class="col">CEP</div>
       <div class="col">Telefone</div>
+      <div class="col">Editar</div>
+      <div class="col">Excluir</div>
       <div class="w-100"></div>
+      <br>
 
       <?php 
         foreach($dadosPessoa as $dadoPessoa) {
+            $idPessoa = $dadoPessoa['id'];
             echo "<div class='col'>" . $dadoPessoa['nome'] . "</div>";
             echo "<div class='col'>" . $dadoPessoa['cpf'] . "</div>";
             echo "<div class='col'>" . $dadoPessoa['rg'] . "</div>";
             echo "<div class='col'>" . $dadoPessoa['cep'] . "</div>";
             echo "<div class='col'>" . $dadoPessoa['telefone'] . "</div>";
+            echo "<div class='col'>";
+            echo "<button type='button' data-id='{$idPessoa}' class='btn btn-default btn-warning' data-toggle='modal' data-target='#modalEdicao'>Editar</button>";
+            echo "</div>";
+            echo "<div class='col'>";
+            echo "<button type='button' data-id='{$idPessoa}' class='btn btn-default btn-danger' data-toggle='modal' data-target='#modalExclusao'>Excluir</button>";
+            echo "</div>";
             echo "<div class='w-100'></div>";
+            echo "<br>";
+            
         }
       ?>
 
@@ -55,5 +67,64 @@
   </div>
 </div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="modalEdicao" tabindex="-1" role="dialog" aria-labelledby="modalEdicaoLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalEdicaoLabel">Editar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-warning">Editar</button>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<!-- Modal -->
+<div class="modal fade" id="modalExclusao" tabindex="-1" role="dialog" aria-labelledby="modalExclusaoLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <form action="../controller/excluirPessoa.php" method="POST>
+          <h5 class="modal-title" id="modalExclusaoLabel">Excluir</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Deseja realmente excluir este cadastro?
+        </div>
+      
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="submit" class="btn btn-danger">Excluir</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div> 
+
+
 </body>
 </html>
+
+<script>
+
+$('#myModal').on('shown.bs.modal', function (event) {
+  $('#myInput').trigger('focus')
+
+  const button = $(event.relatedTarget)
+  const idPessoa = button.data("id");
+
+})
+    
+</script>
