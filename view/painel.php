@@ -2,15 +2,13 @@
 
   session_start();
 
-  if(!$_SESSION['online']) {
+  if(!isset($_SESSION['logado'])) {
     header('Location: ../index.php');
   }
 
   require_once('../controller/pessoa.php');
   $dadosPessoa = Pessoa::listarPessoa();
 
-  var_dump($_SESSION);
-    
 
 ?>
 
