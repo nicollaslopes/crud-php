@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     require('../model/db.php');
 
     $emailUsuario = $_POST['emailUsuario'];
@@ -26,6 +28,7 @@
     $isUsuarioLogado = Autenticacao::verificaLoginUsuario($emailUsuario, $senhaUsuario);
 
     if ($isUsuarioLogado) {
+        $_SESSION['logado'] = true;
         header('Location: ../view/painel.php');
     } else {
         header('Location: ../index.php');

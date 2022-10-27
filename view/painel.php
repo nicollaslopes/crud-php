@@ -1,8 +1,16 @@
 <?php
 
-    require_once('../controller/pessoa.php');
+  session_start();
 
-    $dadosPessoa = Pessoa::listarPessoa();
+  if(!$_SESSION['online']) {
+    header('Location: ../index.php');
+  }
+
+  require_once('../controller/pessoa.php');
+  $dadosPessoa = Pessoa::listarPessoa();
+
+  var_dump($_SESSION);
+    
 
 ?>
 
