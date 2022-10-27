@@ -40,7 +40,7 @@ class Pessoa {
         $ultimoIdInserido = $pdo->lastInsertId();
 
         $stmt = $pdo->prepare("INSERT INTO pessoas (endereco_id, nome, cpf, rg, data_nascimento, data_cadastro) 
-        VALUES (:endereco_id, :nome, :cpf, :rg, :data_nascimento, :data_cadastro)");
+                                VALUES (:endereco_id, :nome, :cpf, :rg, :data_nascimento, :data_cadastro)");
 
         $stmt->bindParam(':endereco_id', $ultimoIdInserido);
         $stmt->bindParam(':nome', $nomePessoa);
@@ -73,7 +73,8 @@ class Pessoa {
                                     p.cpf, 
                                     p.rg, 
                                     e.cep, 
-                                    tel.telefone
+                                    tel.telefone,
+                                    p.data_nascimento
                                 FROM 
                                     pessoas p,
                                     enderecos e,

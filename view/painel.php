@@ -41,8 +41,7 @@
       <div class="col">Nome</div>
       <div class="col">CPF</div>
       <div class="col">RG</div>
-      <div class="col">CEP</div>
-      <div class="col">Telefone</div>
+      <div class="col">Data de nascimento</div>
       <div class="col">Editar</div>
       <div class="col">Excluir</div>
       <div class="w-100"></div>
@@ -54,10 +53,14 @@
             echo "<div class='col'>" . $dadoPessoa['nome'] . "</div>";
             echo "<div class='col'>" . $dadoPessoa['cpf'] . "</div>";
             echo "<div class='col'>" . $dadoPessoa['rg'] . "</div>";
-            echo "<div class='col'>" . $dadoPessoa['cep'] . "</div>";
-            echo "<div class='col'>" . $dadoPessoa['telefone'] . "</div>";
+            echo "<div class='col'>" . $dadoPessoa['data_nascimento'] . "</div>";
             echo "<div class='col'>";
-            echo "<button type='button' data-id='{$idPessoa}' class='btn btn-default btn-warning' data-toggle='modal' data-target='#modalEdicao'>Editar</button>";
+            echo "<button type='button' data-id='{$idPessoa}' 
+                                        data-nome-id='{$dadoPessoa['nome']}' 
+                                        data-cpf-id='{$dadoPessoa['cpf']}'
+                                        data-rg-id='{$dadoPessoa['rg']}'
+                                        data-dtnascimento-id='{$dadoPessoa['data_nascimento']}'
+              class='btn btn-default btn-warning' data-toggle='modal' data-target='#modalEdicao'>Editar</button>";
             echo "</div>";
             echo "<div class='col'>";
             echo "<button type='button' data-id='{$idPessoa}' class='btn btn-default btn-danger' data-toggle='modal' data-target='#modalExclusao'>Excluir</button>";
@@ -81,12 +84,27 @@
         <h5 class="modal-title" id="modalEdicaoLabel">Edição</h5>
         </button>
       </div>
-      <div class="modal-body">
-        ...
+      <div id="modal-body" class="modal-body">
+        <div>
+          <label for="nomePessoa" id="nomePessoaLabel">Nome</label>
+          <input type="text" name="nomePessoa" id="nomePessoa" value=>
+        </div>
+        <div>
+          <label for="cpfPessoa" id="cpfPessoaLabel">CPF</label>
+          <input type="text" name="cpfPessoa" id="cpfPessoa" >
+        </div>
+        <div>
+          <label for="rgPessoa" id="rgPessoaLabel">RG</label>
+          <input type="text" name="rgPessoa" id="rgPessoa" >
+        </div>
+        <div>
+          <label for="dtnascimentoPessoa" id="dtnascimentoPessoaLabel">Data de nascimento</label>
+          <input type="date" name="dtnascimentoPessoa" id="dtnascimentoPessoa">
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-warning">Editar</button>
+        <button type="submit" id="botaoEdicao" class="btn btn-warning">Editar</button>
       </div>
     </div>
   </div>
@@ -121,27 +139,67 @@ $('#modalExclusao').on('shown.bs.modal', function (event) {
   $('#myInput').trigger('focus')
 
   const button = $(event.relatedTarget)
-  let idPessoa = button.data("id");
+  const idPessoa = button.data("id");
   const dadosPessoa = {idPessoa: idPessoa};
 
   $("#botaoExclusao").on('click', function() {
 
-  const url = '../controller/excluirPessoa.php';
+    const url = '../controller/excluirPessoa.php';
 
-  $.ajax({
-      type: 'POST',
-      url: url,
-      data: dadosPessoa,
-      dataType: 'html',
-      success: function (data) {
-        window.location.reload();
-      }
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: dadosPessoa,
+        dataType: 'html',
+        success: function (data) {
+          window.location.reload();
+        }
     });
-
-
   });
 
+})
+    
+</script>
 
+<script>
+$('#modalEdicao').on('shown.bs.modal', function (event) {
+  $('#myInput').trigger('focus')
+
+  const button = $(event.relatedTarget)
+  const idPessoa = button.data("id");
+
+  $("#nomePessoa").val(button.data("nome-id"))
+  $("#cpfPessoa").val(button.data("cpf-id"))
+  $("#rgPessoa").val(button.data("rg-id"))
+  $("#dtnascimentoPessoa").val(button.data("dtnascimento-id"))
+  
+  $("#botaoEdicao").on('click', function() {
+
+    const nomePessoa = $("#nomePessoa").val()
+    const cpfPessoa = $("#cpfPessoa").val()
+    const rgPessoa = $("#rgPessoa").val()
+    const dtnascimentoPessoa = $("#dtnascimentoPessoa").val()
+
+    const dadosPessoa = {
+            idPessoa: idPessoa, 
+            nomePessoa: nomePessoa,
+            cpfPessoa: cpfPessoa,
+            rgPessoa: rgPessoa,
+            dtnascimentoPessoa: dtnascimentoPessoa
+          };
+
+    const url = '../controller/editarPessoa.php';
+
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: dadosPessoa,
+        dataType: 'html',
+        success: function (data) {
+          window.location.reload();
+        }
+    });
+  });
 
 })
     

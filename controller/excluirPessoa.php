@@ -23,7 +23,6 @@ class Pessoa {
 }
 
 if(isset($_POST['idPessoa'])) {
-    echo ":D";
     Pessoa::excluirPessoa();
     header('Location: ../view/painel.php');
 }
