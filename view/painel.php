@@ -32,10 +32,16 @@
 
 <div class="container-fluid">
 
-  <h1>CRUD</h1>
+  <h1></h1>
   <form action="cadastroPessoa.html">
     <div class="row">
-          <div class="col-12"><input type="submit" class="btn float-right btn-primary" value="Cadastrar pessoa"></div>
+          <div class="col-12"><input type="submit" class="btn float-left btn-primary" value="Cadastrar pessoa"></div>
+      </div>
+    <br>
+  </form>
+  <form action="../controller/excluirSessao.php">
+    <div class="row">
+          <div class="col-12"><input type="submit" class="btn float-right btn-success" value="Sair"></div>
       </div>
     <br>
   </form>
