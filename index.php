@@ -6,6 +6,8 @@
   <title>Página de login</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"
+    ></script>
 </head>
 
 <body>
@@ -29,14 +31,11 @@
                   <b><label class="form-label" for="senhaUsuario">Password</label></b>
                 </div>
 
-                <div class="form-check d-flex justify-content-start mb-4">
-                  <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
-                  <label class="form-check-label" for="form1Example3"> Remember password </label>
-                </div>
-
                 <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
-                <button class="btn btn-success btn-lg btn-block" type="submit">Cadastrar</button>
-                <hr class="my-4">
+              </form>
+              <hr class="my-4">
+                <button class="btn btn-success btn-lg btn-block" id="botaoCadastrar" type="button">Cadastrar</button>
+              <hr class="my-4">
 
               </div>
             </div>
@@ -44,5 +43,29 @@
         </div>
       </div>
     </section>
-  </form>
+
 </body>
+
+<script>
+
+  $("#botaoCadastrar").on('click', function() {
+
+    const url = 'controller/incluirUsuario.php';
+
+    const dadosUsuario = {
+      emailUsuario: $('#emailUsuario').val(),
+      senhaUsuario: $('#senhaUsuario').val()
+    }
+
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: dadosUsuario,
+        dataType: 'html',
+        success: function (data) {
+          window.location.reload();
+        }
+    });
+  })
+
+</script>
