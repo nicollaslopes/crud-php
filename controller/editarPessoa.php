@@ -12,6 +12,8 @@ class Pessoa {
         $dtnascimentoPessoa = $_POST['dtnascimentoPessoa'];
         $rgPessoa = $_POST['rgPessoa'];
 
+        $dataAtualizacao = date('Y-m-d H:i:s');
+
         $pdo = Db::conecta();
 
         $stmt = $pdo->prepare("UPDATE 
@@ -20,7 +22,8 @@ class Pessoa {
                                     nome = :nome,
                                     cpf = :cpf,
                                     rg = :rg,
-                                    data_nascimento = :dtnascimento
+                                    data_nascimento = :dtnascimento,
+                                    data_atualizacao = :data_atualizacao
                                 WHERE
                                     id = :id");
 
@@ -29,6 +32,7 @@ class Pessoa {
         $stmt->bindParam('cpf', $cpfPessoa);
         $stmt->bindParam('rg', $rgPessoa);
         $stmt->bindParam('dtnascimento', $dtnascimentoPessoa);
+        $stmt->bindParam('data_atualizacao', $dataAtualizacao);
 
         $a = $stmt->execute();
 
