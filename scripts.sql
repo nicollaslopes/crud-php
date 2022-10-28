@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 26, 2022 at 02:13 AM
+-- Generation Time: Oct 29, 2022 at 12:50 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -35,11 +35,6 @@ CREATE TABLE `enderecos` (
   `numero` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `enderecos`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -50,11 +45,6 @@ CREATE TABLE `estados` (
   `id` int(11) NOT NULL,
   `uf` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `estados`
---
-
 
 -- --------------------------------------------------------
 
@@ -74,11 +64,6 @@ CREATE TABLE `pessoas` (
   `data_exclusao` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `pessoas`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -91,11 +76,6 @@ CREATE TABLE `telefones` (
   `telefone` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `telefones`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -107,11 +87,6 @@ CREATE TABLE `usuarios` (
   `email` varchar(255) NOT NULL,
   `senha` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `usuarios`
---
-
 
 --
 -- Indexes for dumped tables
@@ -185,6 +160,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-----
-
