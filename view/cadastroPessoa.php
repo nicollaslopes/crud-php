@@ -1,3 +1,16 @@
+<?php
+
+  session_start();
+
+  if(!isset($_SESSION['logado'])) {
+    header('Location: ../index.php');
+  }
+
+  require_once('../controller/pessoa.php');
+  $dadosPessoa = Pessoa::listarPessoa();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

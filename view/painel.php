@@ -28,7 +28,7 @@
 <div class="container-fluid">
 
   <h1></h1>
-  <form action="cadastroPessoa.html">
+  <form action="cadastroPessoa.php">
     <div class="row">
           <div class="col-12"><input type="submit" class="btn float-left btn-primary" value="Cadastrar pessoa"></div>
       </div>
