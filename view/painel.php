@@ -41,41 +41,44 @@
     <br>
   </form>
 
-  <div class="container-fluid">
+  <!-- <div class="container-fluid"> -->
     
-    <div class="row">
-      <div class="col">Nome</div>
-      <div class="col">CPF</div>
-      <div class="col">RG</div>
-      <div class="col">Data de nascimento</div>
-      <div class="col">Editar</div>
-      <div class="col">Excluir</div>
-      <div class="w-100"></div>
-      <br>
+    <table class="table table-hover table-striped table-bordered">
+      <tr>
+      <th>Nome</th>
+      <th>CPF</th>
+      <th>RG</th>
+      <th>Data de nascimento</th>
+      <th>Editar</th>
+      <th>Excluir</th>
+      </tr>
 
       <?php 
         foreach($dadosPessoa as $dadoPessoa) {
             $idPessoa = $dadoPessoa['id'];
-            echo "<div class='col'>" . $dadoPessoa['nome'] . "</div>";
-            echo "<div class='col'>" . $dadoPessoa['cpf'] . "</div>";
-            echo "<div class='col'>" . $dadoPessoa['rg'] . "</div>";
-            echo "<div class='col'>" . $dadoPessoa['data_nascimento'] . "</div>";
-            echo "<div class='col'>";
+            echo "<tr>";
+            echo "<td>" . $dadoPessoa['nome'] . "</td>";
+            echo "<td>" . $dadoPessoa['cpf'] . "</td>";
+            echo "<td>" . $dadoPessoa['rg'] . "</td>";
+            echo "<td>" . $dadoPessoa['data_nascimento'] . "</td>";
+            echo "<td>";
             echo "<button type='button' data-id='{$idPessoa}' 
                                         data-nome-id='{$dadoPessoa['nome']}' 
                                         data-cpf-id='{$dadoPessoa['cpf']}'
                                         data-rg-id='{$dadoPessoa['rg']}'
                                         data-dtnascimento-id='{$dadoPessoa['data_nascimento']}'
               class='btn btn-default btn-warning' data-toggle='modal' data-target='#modalEdicao'>Editar</button>";
-            echo "</div>";
-            echo "<div class='col'>";
+            echo "</td>";
+            echo "<td>";
             echo "<button type='button' data-id='{$idPessoa}' class='btn btn-default btn-danger' data-toggle='modal' data-target='#modalExclusao'>Excluir</button>";
-            echo "</div>";
-            echo "<div class='w-100'></div>";
+            echo "</td>";
+            echo "</tr>";
             echo "<br>";
             
         }
       ?>
+
+      </table>
 
     </div>
   </div>
