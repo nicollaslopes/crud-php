@@ -22,6 +22,9 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
+  
 </head>
 <body>
 
@@ -55,14 +58,14 @@
 
                         <div class="col-md-6 mb-4 pb-2">
                             <div class="form-outline">
-                                <input type="text" id="cpfPessoa" name="cpfPessoa" class="form-control form-control-lg" required />
+                                <input type="text" id="cpfPessoa" name="cpfPessoa" class="form-control form-control-lg" maxlength="11" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
                                 <label class="form-label" for="cpfPessoa">CPF</label>
                             </div>
                         </div>
 
                         <div class="col-md-6 mb-4 pb-2">
                             <div class="form-outline">
-                                <input type="text" id="rgPessoa" name="rgPessoa" class="form-control form-control-lg" required />
+                                <input type="text" id="rgPessoa" name="rgPessoa" class="form-control form-control-lg" maxlength="10" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
                                 <label class="form-label" for="rgPessoa">RG</label>
                             </div>
                         </div>
@@ -86,7 +89,7 @@
                         <div class="col-md-5 mb-4 pb-2">
 
                         <div class="form-outline form-white">
-                            <input type="text" id="cepPessoa" name="cepPessoa" class="form-control form-control-lg" required />
+                            <input type="text" id="cepPessoa" name="cepPessoa" class="form-control form-control-lg" maxlength="8" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
                             <label class="form-label" for="cepPessoa">CEP</label>
                         </div>
 
@@ -94,7 +97,7 @@
                         
                         <div class="col-md-4 mb-4 pb-2">
                         <div class="form-outline form-white">
-                            <input type="text" id="ufPessoa" name="ufPessoa" class="form-control form-control-lg" required />
+                            <input type="text" id="ufPessoa" name="ufPessoa" class="form-control form-control-lg" required maxlength="2"/>
                             <label class="form-label" for="ufPessoa">UF</label>
                         </div>
                         </div>
@@ -104,7 +107,7 @@
                         <div class="col-md-5 mb-4 pb-2">
 
                         <div class="form-outline form-white">
-                            <input type="text" id="numeroPessoa" name="numeroPessoa" class="form-control form-control-lg" required />
+                            <input type="text" id="numeroPessoa" name="numeroPessoa" class="form-control form-control-lg" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
                             <label class="form-label" for="numeroPessoa">Número</label>
                         </div>
 
