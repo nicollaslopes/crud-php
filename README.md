@@ -17,4 +17,4 @@ Esse projeto é um CRUD que implementa a estrutura de banco de dados abaixo e ta
 ## Requisitos para testar em uma máquina
 
 - Necessário ter um servidor Apache e MySQL.
-- Crie uma tabela com o nome de `crud-php` e utilize o arquivo `scripts.sql` na raíz do projeto para criar as tabelas. 
+- Crie um banco de dados com o nome de `crud-php` e utilize o arquivo `scripts.sql` na raíz do projeto para criar as tabelas. 
