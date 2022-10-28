@@ -1,0 +1,77 @@
+<!-- Modal -->
+<div class="modal fade" id="modalEdicao" tabindex="-1" role="dialog" aria-labelledby="modalEdicaoLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="modalEdicaoLabel">Edição</h5>
+            </button>
+        </div>
+        <div id="modal-body" class="modal-body">
+            <div>
+            <label for="nomePessoa" id="nomePessoaLabel">Nome</label>
+            <input type="text" name="nomePessoa" id="nomePessoa" value=>
+            </div>
+            <div>
+            <label for="cpfPessoa" id="cpfPessoaLabel">CPF</label>
+            <input type="text" name="cpfPessoa" id="cpfPessoa" >
+            </div>
+            <div>
+            <label for="rgPessoa" id="rgPessoaLabel">RG</label>
+            <input type="text" name="rgPessoa" id="rgPessoa" >
+            </div>
+            <div>
+            <label for="dtnascimentoPessoa" id="dtnascimentoPessoaLabel">Data de nascimento</label>
+            <input type="date" name="dtnascimentoPessoa" id="dtnascimentoPessoa">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="submit" id="botaoEdicao" class="btn btn-warning">Editar</button>
+        </div>
+        </div>
+    </div>
+</div> 
+
+  <script>
+    $('#modalEdicao').on('shown.bs.modal', function (event) {
+      $('#myInput').trigger('focus')
+    
+      const button = $(event.relatedTarget)
+      const idPessoa = button.data("id");
+    
+      $("#nomePessoa").val(button.data("nome-id"))
+      $("#cpfPessoa").val(button.data("cpf-id"))
+      $("#rgPessoa").val(button.data("rg-id"))
+      $("#dtnascimentoPessoa").val(button.data("dtnascimento-id"))
+      
+      $("#botaoEdicao").on('click', function() {
+    
+        const nomePessoa = $("#nomePessoa").val()
+        const cpfPessoa = $("#cpfPessoa").val()
+        const rgPessoa = $("#rgPessoa").val()
+        const dtnascimentoPessoa = $("#dtnascimentoPessoa").val()
+    
+        const dadosPessoa = {
+                idPessoa: idPessoa, 
+                nomePessoa: nomePessoa,
+                cpfPessoa: cpfPessoa,
+                rgPessoa: rgPessoa,
+                dtnascimentoPessoa: dtnascimentoPessoa
+              };
+    
+        const url = '../controller/editarPessoa.php';
+    
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: dadosPessoa,
+            dataType: 'html',
+            success: function (data) {
+              window.location.reload();
+            }
+        });
+      });
+    
+    })
+        
+</script>

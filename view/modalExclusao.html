@@ -1,0 +1,51 @@
+<!-- Modal -->
+<div class="modal fade" id="modalExclusao" tabindex="-1" role="dialog" aria-labelledby="modalExclusaoLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="modalExclusaoLabel">Exclusão</h5>
+            </button>
+          </div>
+          <div class="modal-body">
+            Deseja realmente excluir este cadastro?
+          </div>
+        
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="submit" id="botaoExclusao" data-dismiss="modal" class="btn btn-danger">Excluir</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+  
+  </body>
+  </html>
+  
+  <script>
+  
+  $('#modalExclusao').on('shown.bs.modal', function (event) {
+    $('#myInput').trigger('focus')
+  
+    const button = $(event.relatedTarget)
+    const idPessoa = button.data("id");
+    const dadosPessoa = {idPessoa: idPessoa};
+  
+    $("#botaoExclusao").on('click', function() {
+  
+      const url = '../controller/excluirPessoa.php';
+  
+      $.ajax({
+          type: 'POST',
+          url: url,
+          data: dadosPessoa,
+          dataType: 'html',
+          success: function (data) {
+            window.location.reload();
+          }
+      });
+    });
+  
+  })
+      
+  </script>
+  
