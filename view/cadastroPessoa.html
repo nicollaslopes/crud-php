@@ -109,6 +109,9 @@
                     <button type="submit" id="cadastrar" name="cadastrar" class="btn btn-light btn-lg" data-mdb-ripple-color="dark">Cadastrar</button>
                     <input type="hidden" name="cadastrarPessoa">
 
+                    <div class="row">
+                        <div class="col-12"><input type="submit" id="botaoSair" class="btn float-right btn-success" value="Sair"></div>
+                    </div>
                     </div>
                 </div>
                 </div>
@@ -120,3 +123,10 @@
     </section>
 </form>
 
+<script>
+
+    $("#botaoSair").on('click', function() {
+        window.history.back();
+    })    
+
+</script>
