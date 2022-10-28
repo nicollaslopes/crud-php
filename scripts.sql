@@ -112,8 +112,6 @@ CREATE TABLE `usuarios` (
 -- Dumping data for table `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `email`, `senha`) VALUES
-(1, 'teste@teste.com', '123');
 
 --
 -- Indexes for dumped tables
