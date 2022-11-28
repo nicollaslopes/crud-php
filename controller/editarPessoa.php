@@ -34,9 +34,9 @@ class Pessoa {
         $stmt->bindParam('dtnascimento', $dtnascimentoPessoa);
         $stmt->bindParam('data_atualizacao', $dataAtualizacao);
 
-        $a = $stmt->execute();
+        $stmt->execute();
 
-        var_dump($a);
+
 
     }
 
@@ -44,7 +44,7 @@ class Pessoa {
 
 if(isset($_POST['idPessoa'])) {
 
-    echo "editando";
+
     Pessoa::editarPessoa();
     header('Location: ../view/painel.php');
 }
