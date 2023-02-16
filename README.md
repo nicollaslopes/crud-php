@@ -1,7 +1,7 @@
 Esse projeto é um CRUD que implementa a estrutura de banco de dados abaixo e também possui a funcionalidade de autenticação de usuário (é armazenado o e-mail e a hash da senha).
 
 <p align="center">
-  <img src="assets/img/db.png"/>
+  <img src="src/assets/img/db.png"/>
 </p> 
 
 ## Tecnologias utilizadas
