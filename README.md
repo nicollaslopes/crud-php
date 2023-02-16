@@ -6,7 +6,8 @@ Esse projeto é um CRUD que implementa a estrutura de banco de dados abaixo e ta
 
 ## Tecnologias utilizadas
 
-- PHP v7.4
+- Docker
+- PHP v8.2
 - Banco de Dados: MySQL
 - HTML/CSS
 - Javascript
@@ -14,7 +15,7 @@ Esse projeto é um CRUD que implementa a estrutura de banco de dados abaixo e ta
 - Bootstrap
 - Arquitetura MVC
 
-## Requisitos para testar em uma máquina
+## Como testar em sua máquina
 
-- Necessário ter um servidor Apache e MySQL.
+- Execute o comando a seguir para subir os containers `docker compose up -d`
 - Crie um banco de dados com o nome de `crud-php` e utilize o arquivo `scripts.sql` na raíz do projeto para criar as tabelas. 
