@@ -1,0 +1,15 @@
+{
+    "name": "nikizera/crud-php",
+    "autoload": {
+        "psr-4": {
+            "Nikizera\\CrudPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "nicollaslopes",
+            "email": "nicollaslopesn@gmail.com"
+        }
+    ],
+    "require": {}
+}
