@@ -1,60 +1,61 @@
 <?php
 
-    session_start();
+require_once '../../vendor/autoload.php';
+session_start();
 
-    require('../model/db.php');
+use MyApp\Model\Db;
 
-    $emailUsuario = $_POST['emailUsuario'];
-    $senhaUsuario = $_POST['senhaUsuario'];
+$emailUsuario = $_POST['emailUsuario'];
+$senhaUsuario = $_POST['senhaUsuario'];
 
 
-    class Autenticacao {
+class Autenticacao {
 
-        public static function verificaLoginUsuario($emailUsuario, $senhaUsuario): bool {
+    public static function verificaLoginUsuario($emailUsuario, $senhaUsuario): bool {
 
-            $pdo = Db::conecta();
+        $pdo = MyApp\Model\Db::conecta();
 
-            $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email");
-            $stmt->bindParam(':email', $emailUsuario);
-            $stmt->execute();
-        
-            $usuarioValido = $stmt->rowCount();
-
-            if ($usuarioValido) {
-
-                $hashUsuario = Autenticacao::getHashUsuario($emailUsuario);
-
-                if (password_verify($senhaUsuario, $hashUsuario)) {
-                    $usuarioValido = true;
-                } else {
-                    $usuarioValido = false;
-                }
+        $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email");
+        $stmt->bindParam(':email', $emailUsuario);
+        $stmt->execute();
     
+        $usuarioValido = $stmt->rowCount();
+
+        if ($usuarioValido) {
+
+            $hashUsuario = Autenticacao::getHashUsuario($emailUsuario);
+
+            if (password_verify($senhaUsuario, $hashUsuario)) {
+                $usuarioValido = true;
+            } else {
+                $usuarioValido = false;
             }
 
-            return $usuarioValido;
         }
 
-        public static function getHashUsuario($emailUsuario): string {
-
-            $pdo = Db::conecta();
-
-            $stmt = $pdo->prepare("SELECT senha FROM usuarios WHERE email = :email");
-            $stmt->bindParam(':email', $emailUsuario);
-
-            $stmt->execute();
-            $result = $stmt->fetch();
-            
-            return $result['senha'];
-
-        }
+        return $usuarioValido;
     }
 
-    $isUsuarioLogado = Autenticacao::verificaLoginUsuario($emailUsuario, $senhaUsuario);
+    public static function getHashUsuario($emailUsuario): string {
 
-    if ($isUsuarioLogado) {
-        $_SESSION['logado'] = true;
-        header('Location: ../view/painel.php');
-    } else {
-        header('Location: ../index.php');
+        $pdo = Db::conecta();
+
+        $stmt = $pdo->prepare("SELECT senha FROM usuarios WHERE email = :email");
+        $stmt->bindParam(':email', $emailUsuario);
+
+        $stmt->execute();
+        $result = $stmt->fetch();
+        
+        return $result['senha'];
+
     }
+}
+
+$isUsuarioLogado = Autenticacao::verificaLoginUsuario($emailUsuario, $senhaUsuario);
+
+if ($isUsuarioLogado) {
+    $_SESSION['logado'] = true;
+    header('Location: ../view/painel.php');
+} else {
+    header('Location: ../index.php');
+}

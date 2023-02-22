@@ -1,12 +1,16 @@
 <?php
 
-class Db {
+namespace MyApp\Model;
 
+use PDO;
+
+class Db 
+{
     private static $host = '172.18.0.2';
     private static $usuario = 'user';
     private static $senha = 'root';
     private static $nomeDb = 'crud-php';
-
+    
     public static function conecta() {
 
         try {

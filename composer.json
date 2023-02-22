@@ -2,7 +2,7 @@
     "name": "nikizera/crud-php",
     "autoload": {
         "psr-4": {
-            "Nikizera\\CrudPhp\\": "src/"
+            "MyApp\\": "src/"
         }
     },
     "authors": [

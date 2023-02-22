@@ -1,6 +1,8 @@
 <?php
 
-require('../model/db.php');
+require_once '../../vendor/autoload.php';
+
+use MyApp\Model\Db;
 
 class Pessoa {
 

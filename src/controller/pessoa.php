@@ -1,6 +1,8 @@
 <?php
 
-require('../model/db.php');
+require_once '../../vendor/autoload.php';
+
+use MyApp\Model\Db;
 
 class Pessoa {
 
@@ -96,7 +98,7 @@ class Pessoa {
 
 }
 
-if(isset($_POST['cadastrarPessoa'])) {
+if (isset($_POST['cadastrarPessoa'])) {
     Pessoa::cadastrarPessoa();
     header('Location: ../view/painel.php');
 }

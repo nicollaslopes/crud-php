@@ -1,7 +1,6 @@
 <?php
 
-
-require('../model/db.php');
+require_once '../../vendor/autoload.php';
 
 class Pessoa {
 
@@ -31,7 +30,6 @@ class Pessoa {
             // to do: implementar mensagem de erro de usuário existente
         }
 
-
     }
 
     public static function verificaExistenciaUsuario($emailUsuario): bool {
@@ -50,7 +48,7 @@ class Pessoa {
 
 }
 
-if(isset($_POST['senhaUsuario']) && isset($_POST['emailUsuario'])) {
+if (isset($_POST['senhaUsuario']) && isset($_POST['emailUsuario'])) {
     Pessoa::incluirUsuario();
 }
 
