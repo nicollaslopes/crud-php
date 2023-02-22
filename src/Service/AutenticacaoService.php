@@ -7,7 +7,6 @@ require_once '../../vendor/autoload.php';
 use MyApp\Model\Db;
 use MyApp\Service\Interface\AutenticacaoInterface;
 
-
 class AutenticacaoService implements AutenticacaoInterface
 {
     public static function verificaLoginUsuario($emailUsuario, $senhaUsuario): bool
