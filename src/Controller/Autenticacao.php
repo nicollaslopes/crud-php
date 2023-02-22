@@ -6,17 +6,15 @@ session_start();
 use MyApp\Model\Db;
 use MyApp\Service\AutenticacaoService;
 
-class Autenticacao {
-
+class Autenticacao 
+{
     public static function verificacaoLogin(): bool {
 
         $emailUsuario = $_POST['emailUsuario'];
         $senhaUsuario = $_POST['senhaUsuario'];
 
-        return AutenticacaoService::verificaLoginUsuario($emailUsuario, $senhaUsuario); 
-
+        return AutenticacaoService::verificaLoginUsuario($emailUsuario, $senhaUsuario);
     }
-
 }
 
 $isUsuarioLogado = Autenticacao::verificacaoLogin();
