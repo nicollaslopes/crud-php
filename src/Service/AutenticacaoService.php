@@ -11,7 +11,6 @@ class AutenticacaoService implements AutenticacaoInterface
 {
     public static function verificaLoginUsuario($emailUsuario, $senhaUsuario): bool
     {
-
         $pdo = Db::conecta();
 
         $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email");
