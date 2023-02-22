@@ -6,7 +6,7 @@
     header('Location: ../index.php');
   }
 
-  require_once('../controller/pessoa.php');
+  require_once('../Controller/pessoa.php');
   $dadosPessoa = Pessoa::listarPessoa();
 
 ?>
@@ -28,7 +28,7 @@
 </head>
 <body>
 
-<form action="../controller/pessoa.php" method="POST">
+<form action="../Controller/pessoa.php" method="POST">
     <section class="h-100 h-custom gradient-custom-2">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">

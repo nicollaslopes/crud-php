@@ -6,7 +6,7 @@
     header('Location: ../index.php');
   }
 
-  require_once('../controller/pessoa.php');
+  require_once('../Controller/pessoa.php');
   $dadosPessoa = Pessoa::listarPessoa();
 
 ?>
@@ -34,7 +34,7 @@
       </div>
     <br>
   </form>
-  <form action="../controller/excluirSessao.php">
+  <form action="../Controller/excluirSessao.php">
     <div class="row">
           <div class="col-12"><input type="submit" class="btn float-right btn-success" value="Sair"></div>
       </div>

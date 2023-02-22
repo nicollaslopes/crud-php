@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <form action="controller/autenticacao.php" method="POST">
+  <form action="Controller/autenticacao.php" method="POST">
     <section class="vh-100" style="background-color: #508bfc;">
       <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -54,7 +54,7 @@
 
 
 
-    const url = 'controller/incluirUsuario.php';
+    const url = 'Controller/incluirUsuario.php';
 
     const dadosUsuario = {
       emailUsuario: $('#emailUsuario').val(),
