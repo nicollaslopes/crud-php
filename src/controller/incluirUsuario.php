@@ -2,6 +2,8 @@
 
 require_once '../../vendor/autoload.php';
 
+use MyApp\Model\Db;
+
 class Pessoa {
 
     public static function incluirUsuario(): void {

@@ -2,6 +2,8 @@
 
 require_once '../../vendor/autoload.php';
 
+use MyApp\Model\Db;
+
 class Pessoa {
 
     public static function excluirPessoa(): void {
@@ -24,7 +26,7 @@ class Pessoa {
 if(isset($_POST['idPessoa'])) {
     Pessoa::excluirPessoa();
     header('Location: ../view/painel.php');
-}
+} 
 
 ?>
 
