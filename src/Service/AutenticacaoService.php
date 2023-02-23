@@ -4,20 +4,14 @@ namespace MyApp\Service;
 
 require_once '../../vendor/autoload.php';
 
-use MyApp\Model\Db;
+use MyApp\Repositories\UsuarioRepository;
 use MyApp\Service\Interface\AutenticacaoInterface;
 
 class AutenticacaoService implements AutenticacaoInterface
 {
     public static function verificaLoginUsuario($emailUsuario, $senhaUsuario): bool
     {
-        $pdo = Db::conecta();
-
-        $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email");
-        $stmt->bindParam(':email', $emailUsuario);
-        $stmt->execute();
-    
-        $usuarioValido = $stmt->rowCount();
+        $usuarioValido = UsuarioRepository::getUsuarioByEmail($emailUsuario);
 
         if ($usuarioValido) {
 
@@ -28,23 +22,15 @@ class AutenticacaoService implements AutenticacaoInterface
             } else {
                 $usuarioValido = false;
             }
-
         }
 
         return $usuarioValido;
     }
 
-    public static function getHashUsuario($emailUsuario): string {
+    public static function getHashUsuario($emailUsuario): string 
+    {
+        $result = UsuarioRepository::getSenhaUsuarioByEmail($emailUsuario);
 
-        $pdo = Db::conecta();
-
-        $stmt = $pdo->prepare("SELECT senha FROM usuarios WHERE email = :email");
-        $stmt->bindParam(':email', $emailUsuario);
-
-        $stmt->execute();
-        $result = $stmt->fetch();
-        
         return $result['senha'];
-
     }
 }
