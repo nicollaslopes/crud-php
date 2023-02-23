@@ -4,7 +4,6 @@ namespace MyApp\Service;
 
 require_once '../../vendor/autoload.php';
 
-use MyApp\Model\Db;
 use MyApp\Repositories\UsuarioRepository;
 use MyApp\Service\Interface\UsuarioInterface;
 
