@@ -112,7 +112,7 @@ class PessoaRepository
         $stmt->execute();
     }
 
-    public static function listPessoa()
+    public static function listPessoa(): array
     {
         $pdo = Db::conecta();
 
