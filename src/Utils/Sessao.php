@@ -9,4 +9,13 @@ class Sessao
         session_start();
         session_destroy();
     }
+
+    public static function verificaSePossuiSessao(): void
+    {
+        session_start();
+
+        if(!isset($_SESSION['logado'])) {
+            header('Location: ../../../index.php');
+        }
+    }
 }

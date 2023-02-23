@@ -1,13 +1,12 @@
 <?php
 
-  session_start();
+require_once '../../vendor/autoload.php';
+use MyApp\Utils\Sessao;
 
-  if(!isset($_SESSION['logado'])) {
-    header('Location: ../index.php');
-  }
+Sessao::verificaSePossuiSessao();
 
-  require_once('../Controller/pessoa.php');
-  $dadosPessoa = Pessoa::listarPessoa();
+require_once('../Controller/pessoa.php');
+$dadosPessoa = Pessoa::listarPessoa();
 
 ?>
 
