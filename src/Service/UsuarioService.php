@@ -5,6 +5,7 @@ namespace MyApp\Service;
 require_once '../../vendor/autoload.php';
 
 use MyApp\Model\Db;
+use MyApp\Repositories\UsuarioRepository;
 use MyApp\Service\Interface\UsuarioInterface;
 
 class UsuarioService implements UsuarioInterface
@@ -18,12 +19,7 @@ class UsuarioService implements UsuarioInterface
             $opcaoHash = ['cost' => 12];
             $senhaHash = password_hash($senhaUsuario, PASSWORD_BCRYPT, $opcaoHash);
 
-            $pdo = Db::conecta();
-            $stmt = $pdo->prepare("INSERT INTO usuarios (email, senha) VALUES (:email, :senha)");
-            $stmt->bindParam(':email', $emailUsuario);
-            $stmt->bindParam(':senha', $senhaHash);
-    
-            $stmt->execute();
+            UsuarioRepository::addUsuario($emailUsuario, $senhaHash);
         } else {
             // to do: implementar mensagem de erro de usuário existente
         }
@@ -31,11 +27,8 @@ class UsuarioService implements UsuarioInterface
 
     public static function verificaExistenciaUsuario(string $emailUsuario): bool 
     {
-        $pdo = Db::conecta();
-        $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email");
-        $stmt->bindParam(':email', $emailUsuario);
-        $stmt->execute();
+        $usuario = UsuarioRepository::getUsuarioByEmail($emailUsuario);
 
-        return $stmt->rowCount() == 1 ? true : false;
+        return $usuario == 1 ? true : false;
     }
 }
