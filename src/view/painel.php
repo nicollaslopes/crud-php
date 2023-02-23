@@ -2,11 +2,10 @@
 
 require_once '../../vendor/autoload.php';
 use MyApp\Utils\Sessao;
+use MyApp\Controller\PessoaController;
 
 Sessao::verificaSePossuiSessao();
-
-require_once('../Controller/pessoa.php');
-$dadosPessoa = Pessoa::listarPessoa();
+$dadosPessoa = PessoaController::listarPessoa();
 
 ?>
 

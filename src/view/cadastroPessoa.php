@@ -4,7 +4,6 @@ require_once '../../vendor/autoload.php';
 use MyApp\Utils\Sessao;
 
 Sessao::verificaSePossuiSessao();
-
 ?>
 
 <!DOCTYPE html>
@@ -20,11 +19,10 @@ Sessao::verificaSePossuiSessao();
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 
-  
 </head>
 <body>
 
-<form action="../Controller/pessoa.php" method="POST">
+<form action="../Controller/PessoaController.php" method="POST">
     <section class="h-100 h-custom gradient-custom-2">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -119,7 +117,7 @@ Sessao::verificaSePossuiSessao();
                     </div>
 
                     <button type="submit" id="cadastrar" name="cadastrar" class="btn btn-light btn-lg" data-mdb-ripple-color="dark">Cadastrar</button>
-                    <input type="hidden" name="cadastrarPessoa">
+                    <input type="hidden" name="acao" value="cadastrar">
 
                     <div class="row">
                         <div class="col-12"><input type="submit" id="botaoSair" class="btn float-right btn-success" value="Sair"></div>
