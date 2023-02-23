@@ -27,4 +27,15 @@ class UsuarioRepository
 
         return $stmt->fetch();
     }
+
+    public static function addUsuario(string $emailUsuario, string $senhaHash): void
+    {
+        $pdo = Db::conecta();
+
+        $stmt = $pdo->prepare("INSERT INTO usuarios (email, senha) VALUES (:email, :senha)");
+        $stmt->bindParam(':email', $emailUsuario);
+        $stmt->bindParam(':senha', $senhaHash);
+
+        $stmt->execute();
+    }
 }
