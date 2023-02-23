@@ -52,9 +52,7 @@
 
   $("#botaoCadastrar").on('click', function() {
 
-
-
-    const url = 'Controller/incluirUsuario.php';
+    const url = 'Controller/UsuarioController.php';
 
     const dadosUsuario = {
       emailUsuario: $('#emailUsuario').val(),
