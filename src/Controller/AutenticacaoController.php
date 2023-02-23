@@ -6,7 +6,7 @@ session_start();
 use MyApp\Model\Db;
 use MyApp\Service\AutenticacaoService;
 
-class Autenticacao 
+class AutenticacaoController
 {
     public static function verificacaoLogin(): bool {
 
@@ -17,7 +17,7 @@ class Autenticacao
     }
 }
 
-$isUsuarioLogado = Autenticacao::verificacaoLogin();
+$isUsuarioLogado = AutenticacaoController::verificacaoLogin();
 
 if ($isUsuarioLogado) {
     $_SESSION['logado'] = true;
