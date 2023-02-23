@@ -34,7 +34,7 @@
       </div>
     <br>
   </form>
-  <form action="../Controller/excluirSessao.php">
+  <form action="../Controller/SessaoController.php">
     <div class="row">
           <div class="col-12"><input type="submit" class="btn float-right btn-success" value="Sair"></div>
       </div>
