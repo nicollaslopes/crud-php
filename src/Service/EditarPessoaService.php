@@ -1,20 +1,26 @@
 <?php
 
+namespace MyApp\Service;
+
 require_once '../../vendor/autoload.php';
 
 use MyApp\Model\Db;
+use MyApp\Service\Interface\EditarPessoaInterface;
 
-class Pessoa {
+class EditarPessoaService implements EditarPessoaInterface
+{
+    public static function editarPessoa(array $arrayDadosPessoa): void
+    {
+        
+        [
+            'idPessoa' => $idPessoa,
+            'nomePessoa' => $nomePessoa, 
+            'cpfPessoa' => $cpfPessoa, 
+            'rgPessoa' => $rgPessoa, 
+            'dtnascimentoPessoa' => $dtnascimentoPessoa
+        ] = $arrayDadosPessoa[0];
 
-    public static function editarPessoa() {
-
-        $idPessoa = $_POST['idPessoa'];
-        $nomePessoa = $_POST['nomePessoa'];
-        $cpfPessoa = $_POST['cpfPessoa'];
-        $dtnascimentoPessoa = $_POST['dtnascimentoPessoa'];
-        $rgPessoa = $_POST['rgPessoa'];
-
-        $dataAtualizacao = date('Y-m-d H:i:s');
+        $dataAtualizacao = $arrayDadosPessoa[1];
 
         $pdo = Db::conecta();
 
@@ -38,18 +44,5 @@ class Pessoa {
 
         $stmt->execute();
 
-
-
     }
-
 }
-
-if(isset($_POST['idPessoa'])) {
-
-
-    Pessoa::editarPessoa();
-    header('Location: ../view/painel.php');
-}
-
-?>
-
