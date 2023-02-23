@@ -28,11 +28,14 @@
   
     const button = $(event.relatedTarget)
     const idPessoa = button.data("id");
-    const dadosPessoa = {idPessoa: idPessoa};
+    const dadosPessoa = {
+                          idPessoa: idPessoa,
+                          acao: 'excluir'
+                        }
   
     $("#botaoExclusao").on('click', function() {
   
-      const url = '../Controller/excluirPessoa.php';
+      const url = '../Controller/PessoaController.php';
   
       $.ajax({
           type: 'POST',

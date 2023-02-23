@@ -5,9 +5,9 @@ namespace MyApp\Service;
 require_once '../../vendor/autoload.php';
 
 use MyApp\Model\Db;
-use MyApp\Service\Interface\EditarPessoaInterface;
+use MyApp\Service\Interface\PessoaInterface;
 
-class EditarPessoaService implements EditarPessoaInterface
+class PessoaService implements PessoaInterface
 {
     public static function editarPessoa(array $arrayDadosPessoa): void
     {
@@ -43,6 +43,17 @@ class EditarPessoaService implements EditarPessoaInterface
         $stmt->bindParam('data_atualizacao', $dataAtualizacao);
 
         $stmt->execute();
+    }
 
+    public static function excluirPessoa($idPessoa): void
+    {
+        $pdo = Db::conecta();
+
+        $stmt = $pdo->prepare("DELETE FROM pessoas
+                                WHERE id = :id");
+
+        $stmt->bindParam('id', $idPessoa);
+
+        $stmt->execute();
     }
 }
