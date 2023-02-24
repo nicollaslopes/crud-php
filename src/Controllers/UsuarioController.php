@@ -2,7 +2,7 @@
 
 require_once '../../vendor/autoload.php';
 
-use MyApp\Service\UsuarioService;
+use MyApp\Services\UsuarioService;
 
 class UsuarioController 
 {

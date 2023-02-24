@@ -3,7 +3,7 @@
 require_once '../../vendor/autoload.php';
 session_start();
 
-use MyApp\Service\AutenticacaoService;
+use MyApp\Services\AutenticacaoService;
 
 class AutenticacaoController
 {

@@ -4,7 +4,7 @@ namespace MyApp\Controllers;
 
 require_once '../../vendor/autoload.php';
 
-use MyApp\Service\PessoaService;
+use MyApp\Services\PessoaService;
 
 class PessoaController
 {
