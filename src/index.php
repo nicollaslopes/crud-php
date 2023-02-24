@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <form action="Controller/AutenticacaoController.php" method="POST">
+  <form action="Controllers/AutenticacaoController.php" method="POST">
     <section class="vh-100" style="background-color: #508bfc;">
       <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -52,7 +52,7 @@
 
   $("#botaoCadastrar").on('click', function() {
 
-    const url = 'Controller/UsuarioController.php';
+    const url = 'Controllers/UsuarioController.php';
 
     const dadosUsuario = {
       emailUsuario: $('#emailUsuario').val(),

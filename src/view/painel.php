@@ -2,7 +2,7 @@
 
 require_once '../../vendor/autoload.php';
 use MyApp\Utils\Sessao;
-use MyApp\Controller\PessoaController;
+use MyApp\Controllers\PessoaController;
 
 Sessao::verificaSePossuiSessao();
 $dadosPessoa = PessoaController::listarPessoa();
@@ -32,7 +32,7 @@ $dadosPessoa = PessoaController::listarPessoa();
       </div>
     <br>
   </form>
-  <form action="../Controller/SessaoController.php">
+  <form action="../Controllers/SessaoController.php">
     <div class="row">
           <div class="col-12"><input type="submit" class="btn float-right btn-success" value="Sair"></div>
       </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace MyApp\Controller;
+namespace MyApp\Controllers;
 
 require_once '../../vendor/autoload.php';
 
