@@ -19,8 +19,6 @@ class UsuarioService implements UsuarioInterface
             $senhaHash = password_hash($senhaUsuario, PASSWORD_BCRYPT, $opcaoHash);
 
             UsuarioRepository::addUsuario($emailUsuario, $senhaHash);
-        } else {
-            // to do: implementar mensagem de erro de usuário existente
         }
     }
 
