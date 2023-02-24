@@ -5,7 +5,7 @@ namespace MyApp\Services;
 require_once '../../vendor/autoload.php';
 
 use MyApp\Repositories\PessoaRepository;
-use MyApp\Services\Interface\PessoaInterface;
+use MyApp\Services\Interfaces\PessoaInterface;
 
 class PessoaService implements PessoaInterface
 {

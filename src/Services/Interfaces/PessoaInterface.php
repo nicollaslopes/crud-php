@@ -1,6 +1,6 @@
 <?php
 
-namespace MyApp\Services\Interface;
+namespace MyApp\Services\Interfaces;
 
 interface PessoaInterface
 {

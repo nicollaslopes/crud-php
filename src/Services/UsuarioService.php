@@ -5,7 +5,7 @@ namespace MyApp\Services;
 require_once '../../vendor/autoload.php';
 
 use MyApp\Repositories\UsuarioRepository;
-use MyApp\Services\Interface\UsuarioInterface;
+use MyApp\Services\Interfaces\UsuarioInterface;
 
 class UsuarioService implements UsuarioInterface
 {
