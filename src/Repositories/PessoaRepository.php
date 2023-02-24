@@ -2,7 +2,7 @@
 
 namespace MyApp\Repositories;
 
-use MyApp\Model\Db;
+use MyApp\Models\Db;
 
 class PessoaRepository
 {
