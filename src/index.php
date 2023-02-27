@@ -33,7 +33,7 @@
                   <b><label class="form-label" for="senhaUsuario">Password</label></b>
                 </div>
 
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                <button class="btn btn-primary btn-lg btn-block" id="botaoLogin" type="button">Login</button>
               </form>
               <hr class="my-4">
                 <button class="btn btn-success btn-lg btn-block" id="botaoCadastrar" type="button">Cadastrar</button>
@@ -65,16 +65,52 @@
         data: dadosUsuario,
         dataType: 'html',
         success: function (data) {
-          
           Swal.fire({
             position: 'center',
             icon: 'success',
             title: 'Usuário cadastrado!',
-            showConfirmButton: false,
+            showConfirmButton: true,
             timer: 1500
           })
+          setTimeout(() => {
+            window.location.reload();
+          }, 1500);
         }
+        
     });
+  })
+
+</script>
+
+<script>
+
+  $("#botaoLogin").on('click', function(e) {
+
+      const url = 'Controllers/AutenticacaoController.php';
+
+    const dadosUsuario = {
+      emailUsuario: $('#emailUsuario').val(),
+      senhaUsuario: $('#senhaUsuario').val()
+    }
+
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: dadosUsuario,
+        success: function (response) {
+          if(response === 'error'){
+                      Swal.fire({
+                      icon: 'error',
+                      title: 'Oops...',
+                      text: 'E-mail ou senha inválida!',
+                      timer: 5000
+                      })
+          } else {
+            window.location.href = 'view/painel.php';
+          }
+        }
+    })
+    
   })
 
 </script>

@@ -22,5 +22,5 @@ if ($isUsuarioLogado) {
     $_SESSION['logado'] = true;
     header('Location: ../view/painel.php');
 } else {
-    header('Location: ../index.php');
+    echo 'error';
 }
