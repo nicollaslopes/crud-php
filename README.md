@@ -7,7 +7,7 @@ Esse projeto é um CRUD que implementa a estrutura de banco de dados abaixo e ta
 ## Tecnologias utilizadas
 
 - Docker
-- PHP v8.2
+- PHP v8.1
 - Banco de Dados: MySQL
 - HTML/CSS
 - Javascript
