@@ -13,7 +13,6 @@ Esse projeto é um CRUD que implementa a estrutura de banco de dados abaixo e ta
 - Javascript
 - JQuery
 - Bootstrap
-- Arquitetura MVC
 
 ## Como testar em sua máquina
 
